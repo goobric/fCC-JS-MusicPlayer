@@ -25,13 +25,13 @@ To write an arrow function, you can use the following syntax:
 
 `console.log(add(3, 5)); // Output: 8`
 
-// Arrow function
+<code>// Arrow function
 const addArrow = (a, b) => {
 return a + b;
 };
-console.log(addArrow(3, 5)); // Output: 8
+console.log(addArrow(3, 5)); // Output: 8</code>
 
 If the function body consists of a single expression, you don't need the curly braces and the return keyword. This is called an implicit return:
 
-const addArrow = (a, b) => a + b;
-console.log(addArrow(3, 5)); // Output: 8
+<code>const addArrow = (a, b) => a + b;
+console.log(addArrow(3, 5)); // Output: 8</code>
