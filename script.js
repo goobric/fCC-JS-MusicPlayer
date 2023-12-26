@@ -77,3 +77,10 @@ const allSongs = [
     src: 'https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/chasing-that-feeling.mp3',
   },
 ];
+
+// this function will create a new HTML5 audio element
+const audio = new Audio();
+
+let userData = {
+  songs: [...allSongs],
+};
