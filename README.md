@@ -16,9 +16,13 @@ It's a function expression, which is a function that's assigned to a variable.
 To write an arrow function, you can use the following syntax:
 
 `// Traditional function`
+
 `function add(a, b) {`
+
 `return a + b;`
+
 `}`
+
 `console.log(add(3, 5)); // Output: 8`
 
 // Arrow function
