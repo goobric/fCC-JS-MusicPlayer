@@ -81,6 +81,9 @@ const allSongs = [
 // this function will create a new HTML5 audio element
 const audio = new Audio();
 
+// The spread operator (...) allows you to copy all elements from one array into another.
 let userData = {
   songs: [...allSongs],
+  currentSong: null,
+  songCurrentTime: 0,
 };
