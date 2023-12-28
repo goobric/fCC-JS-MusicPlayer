@@ -101,6 +101,7 @@ const playSong = (id) => {
 
   highlightCurrentSong();
   setPlayerDisplay();
+  setPlayButtonAccessibleText();
 
   audio.play();
 };
@@ -203,6 +204,11 @@ const renderSongs = (array) => {
 /** This function will set the aria-label attribute to the current song, or to the first song in the playlist. And if the playlist is empty, it sets the aria-label to "Play". **/
 const setPlayButtonAccessibleText = () => {
   const song = userData?.currentSong || userData?.songs[0];
+  const playButton = document.getElementById('play');
+  playButton.setAttribute(
+    'aria-label',
+    song?.title ? `Play ${song.title}` : 'Play'
+  );
 };
 
 // Use an arrow syntax to create a getCurrentSongIndex function.
