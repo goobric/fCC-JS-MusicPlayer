@@ -109,6 +109,7 @@ const pauseSong = () => {
   userData.songCurrentTime = audio.currentTime;
   audio.pause();
   playButton.classList.remove('playing');
+  audio.pause();
 };
 
 // The spread operator (...) allows you to copy all elements from one array into another.
@@ -146,6 +147,10 @@ const renderSongs = (array) => {
   // playlistSongs.innerHTML = songsHTML;
 };
 
+// Use an arrow syntax to create a getCurrentSongIndex function.
+// using implicit return, use the indexOf() method on userData?.songs, and pass in userData.currentSong.
+const getCurrentSongIndex = () => userData?.songs.indexOf(userData.currentSong);
+
 playButton.addEventListener('click', () => {
   if (userData?.currentSong === null) {
     // if (audio.paused) {
@@ -160,5 +165,7 @@ playButton.addEventListener('click', () => {
     playSong(userData?.currentSong.id);
   }
 });
+
+pauseButton.addEventListener('click', pauseSong);
 
 renderSongs(userData?.songs);
