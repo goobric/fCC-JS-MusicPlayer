@@ -86,6 +86,19 @@ const playSong = (id) => {
   console.log(`Playing song with ID: ${id}`);
   // Add more logic to play the specific song with the given ID
   const song = userData?.songs.find((song) => song.id === id);
+  audio.src = song.src;
+  audio.title = song.title;
+
+  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+    // userData.currentSong = id;
+    // audio.play();
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData?.songCurrentTime;
+  }
+  userData.currentSong = song;
+  audio.play();
+  playButton.classList.add('playing');
 };
 
 // The spread operator (...) allows you to copy all elements from one array into another.
