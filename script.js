@@ -138,6 +138,15 @@ const playPreviousSong = () => {
   }
 };
 
+const highlightCurrentSong = () => {
+  const playlistSongElements = document.querySelectorAll('.playlist-song');
+  const songToHighlight = document.getElementById(
+    `song-${userData?.currentSong?.id}`
+  );
+};
+
+playlistSongElements.forEach((songEl) => {});
+
 // The spread operator (...) allows you to copy all elements from one array into another.
 let userData = {
   songs: [...allSongs],
@@ -194,5 +203,6 @@ playButton.addEventListener('click', () => {
 
 pauseButton.addEventListener('click', pauseSong);
 nextButton.addEventListener('click', playNextSong);
+previousButton.addEventListener('click', playPreviousSong);
 
 renderSongs(userData?.songs);
