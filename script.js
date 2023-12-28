@@ -112,6 +112,32 @@ const pauseSong = () => {
   audio.pause();
 };
 
+const playNextSong = () => {
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0].id);
+  } else {
+    const currentSongIndex = getCurrentSongIndex();
+    const nextSong = userData?.songs[currentSongIndex + 1];
+    playSong(nextSong.id);
+    // if (nextSongIndex < userData?.songs.length) {
+    //   playSong(userData?.songs[nextSongIndex].id);
+    // } else {
+    //   playSong(userData?.songs[0].id);
+    // }
+  }
+};
+
+const playPreviousSong = () => {
+  if (userData?.currentSong === null) {
+    // playSong(userData?.songs[0].id);
+    return;
+  } else {
+    const currentSongIndex = getCurrentSongIndex();
+    const previousSong = userData?.songs[currentSongIndex - 1];
+    playSong(previousSong.id);
+  }
+};
+
 // The spread operator (...) allows you to copy all elements from one array into another.
 let userData = {
   songs: [...allSongs],
@@ -167,5 +193,6 @@ playButton.addEventListener('click', () => {
 });
 
 pauseButton.addEventListener('click', pauseSong);
+nextButton.addEventListener('click', playNextSong);
 
 renderSongs(userData?.songs);
