@@ -143,9 +143,11 @@ const highlightCurrentSong = () => {
   const songToHighlight = document.getElementById(
     `song-${userData?.currentSong?.id}`
   );
+  // const playlistSongElements = document.querySelectorAll(".playlist-song");
+  playlistSongElements.forEach((songEl) => {
+    songEl.removeAttribute('aria-current');
+  });
 };
-
-playlistSongElements.forEach((songEl) => {});
 
 // The spread operator (...) allows you to copy all elements from one array into another.
 let userData = {
