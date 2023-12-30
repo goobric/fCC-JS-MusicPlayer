@@ -167,6 +167,18 @@ const deleteSong = (id) => {
   setPlayerDisplay();
   highlightCurrentSong();
   setPlayButtonAccessibleText();
+
+  if (userData.songs.length === 0) {
+    // pauseSong();
+    // setPlayerDisplay();
+    // setPlayButtonAccessibleText();
+    const resetButton = document.createElement('button');
+    const resetText = document.createTextNode('Reset Playlist');
+    resetButton.id = 'reset';
+    resetButton.ariaLabel = 'Reset Playlist';
+    resetButton.appendChild(resetText);
+    playlistSongs.appendChild(resetButton);
+  }
 };
 
 const setPlayerDisplay = () => {
