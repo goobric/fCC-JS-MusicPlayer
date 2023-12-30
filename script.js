@@ -178,6 +178,17 @@ const deleteSong = (id) => {
     resetButton.ariaLabel = 'Reset Playlist';
     resetButton.appendChild(resetText);
     playlistSongs.appendChild(resetButton);
+    resetButton.addEventListener('click', () => {
+      userData.songs = [...allSongs];
+      userData.currentSong = null;
+      userData.songCurrentTime = 0;
+      renderSongs(userData?.songs);
+      pauseSong();
+      setPlayerDisplay();
+      highlightCurrentSong();
+      setPlayButtonAccessibleText();
+      resetButton.remove();
+    });
   }
 };
 
@@ -274,4 +285,24 @@ nextButton.addEventListener('click', playNextSong);
 previousButton.addEventListener('click', playPreviousSong);
 shuffleButton.addEventListener('click', shuffle);
 
+audio.addEventListener('ended', () => {
+  const currentSongIndex = getCurrentSongIndex();
+  const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
+
+  // Now you can use the nextSongExists variable in your code
+  if (nextSongExists) {
+    // Code to handle when a next song exists
+    playNextSong();
+  } else {
+    // Code to handle when there is no next song
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+    pauseSong();
+    setPlayerDisplay();
+    highlightCurrentSong();
+    setPlayButtonAccessibleText();
+  }
+});
+
 renderSongs(userData?.songs);
+setPlayButtonAccessibleText();
